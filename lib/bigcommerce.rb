@@ -1,11 +1,15 @@
+require 'dotenv/load'
 require 'hashie'
 require 'faraday_middleware'
-require 'bigcommerce/version'
-require 'bigcommerce/config'
-require 'bigcommerce/connection'
-require 'bigcommerce/middleware/auth'
-require 'bigcommerce/middleware/http_exception'
-require 'bigcommerce/resources/resource'
+require './bigcommerce/version'
+require './bigcommerce/config'
+require './bigcommerce/connection'
+require './bigcommerce/middleware/auth'
+require './bigcommerce/middleware/http_exception'
+require './bigcommerce/resources/resource'
+require 'json'
+
+Dotenv.load('careclub.env')
 
 module Bigcommerce
   resources = File.join(File.dirname(__FILE__), 'bigcommerce', 'resources', '**', '*.rb')

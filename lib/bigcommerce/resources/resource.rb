@@ -1,6 +1,6 @@
-require 'bigcommerce/request'
-require 'bigcommerce/resource_actions'
-require 'bigcommerce/subresource_actions'
+require './bigcommerce/request'
+require './bigcommerce/resource_actions'
+require './bigcommerce/subresource_actions'
 
 module Bigcommerce
   class Resource < Hashie::Trash

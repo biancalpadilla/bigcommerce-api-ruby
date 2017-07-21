@@ -35,7 +35,7 @@ module Bigcommerce
       path += "?include=variants,custom_fields" if path.include? "products"
       path
     end
-      
+
   end
 
   class Request < Module
@@ -80,7 +80,9 @@ module Bigcommerce
       private
 
       def build_response_object(response)
-        json = parse response.body
+        j = parse response.body
+        json = JSON.parse(JSON.generate(j["data"]), symbolize_names: true)
+
         if json.is_a? Array
           json.map { |obj| new obj }
         else
@@ -90,8 +92,9 @@ module Bigcommerce
 
       def parse(json)
         return [] if json.empty?
-        JSON.parse(json, symbolize_names: true)
+        JSON.parse(json)
       end
+
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'bigcommerce/exception'
+require './bigcommerce/exception'
 
 module Bigcommerce
   module Middleware
